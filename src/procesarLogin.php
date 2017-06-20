@@ -17,7 +17,8 @@
     }
 
     if(count($errores) > 0) {
-        echo json_encode($errores);
+        $_SESSION["errores"] = $errores;
+        header("Location: http://solemne3.dev/login.php");
         exit();
     }
 
@@ -25,19 +26,27 @@
     
     if($usuario->buscarPorUsername($user)){
         $data = $usuario->getArray();
-        $sessionUser = array(
-            "nombre" => $usuario["nombre"],
-            "apellidoPat" => $usuario["apellidoPat"],
-            "apellidoMat" => $usuario["apellidoMat"],
-            "correo" => $usuario["correo"],
-            "user" => $usuario["user"]
-        );
-        $_SESSION["usuario"] = $sessionUser;
-        header("Location: http://solemne3.dev/");
+        if($data->pass == $clave) {
+            $sessionUser = array(
+                "nombre" => $usuario["nombre"],
+                "apellidoPat" => $usuario["apellidoPat"],
+                "apellidoMat" => $usuario["apellidoMat"],
+                "correo" => $usuario["correo"],
+                "user" => $usuario["user"]
+            );
+            $_SESSION["usuario"] = $sessionUser;
+            header("Location: http://solemne3.dev/");
+            exit();
+        } else {
+            $errores = array_merge($errores, array("clave" => "La contraseña ingresada es incorrecta"));
+            $_SESSION["errores"] = $errores;
+            header("Location: http://solemne3.dev/login.php");
+            exit();
+        }
+    }else {
+        $errores = array_merge($errores, array("user" => "El usuario ingresado no existe"));
+        $_SESSION["errores"] = $errores;
+        header("Location: http://solemne3.dev/login.php");
         exit();
     }
-
-    $errores = array_merge($errores, array("user" => "El usuario ingresado no existe"));
-    echo json_encode($errores);
-    
 ?>

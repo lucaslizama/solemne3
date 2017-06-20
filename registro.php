@@ -21,7 +21,7 @@
             <div class="page-header">
                 <h1 class="">Crea tu Cuenta</h1>
             </div>
-            <form hidden method="POST" action="procesarLogin.php" id="loginForm">
+            <form hidden method="POST" action="src/procesarLogin.php" id="loginForm">
                 <input type="text" name="user" id="hiddenUser">
                 <input type="password" name="clave" id="hiddenClave">
             </form>
@@ -66,14 +66,14 @@
                     <div class="col-10">
                         <input class="form-control" type="password" name="clave" id="clave">
                     </div>
-                    <span class="text-danger" id="error-pass"></span>
+                    <span class="text-danger" id="error-clave"></span>
                 </div>
                 <div class="form-group row">
                     <label for="repetir_clave" class="col-2 col-form-label">Repetir Contraseña:</label>
                     <div class="col-10">
                         <input class="form-control" type="password" name="repetir_clave" id="repetir_clave">
                     </div>
-                    <span class="text-danger" id="error-repetirPass"></span>
+                    <span class="text-danger" id="error-repetir_clave"></span>
                 </div>
                 <input type="button" class="btn btn-primary" id="btnRegistro" value="Registrarse"></button>
             </form>   

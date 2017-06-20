@@ -9,7 +9,8 @@ $(document).ready(function () {
                 apellidoMat: $("#apellidoMat").val(),
                 correo: $("#correo").val(),
                 user: $("#user").val(),
-                clave: $("#clave").val()
+                clave: $("#clave").val(),
+                repetir_clave: $("#repetir_clave").val()
             },
             success: function (response) {
                 var data = jQuery.parseJSON(response);
@@ -26,9 +27,11 @@ $(document).ready(function () {
                     return;
                 }
 
-                if(data.Exito) {
-                    $("#hiddenUser").val($("#user").val());
-                    $("#hiddenClave").val($("#clave").val());
+                console.log("No hay errores!");
+
+                if(data.Exito == "true") {
+                    $("#hiddenUser").attr("value",$("#user").val());
+                    $("#hiddenClave").attr("value", $("#clave").val());
                     $("#loginForm").submit();
                 }
             }
