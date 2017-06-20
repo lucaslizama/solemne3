@@ -1,0 +1,11 @@
+
+Cosas por Arreglar:
+    1.Definir archivo de constantes para poder cambiar facilmente
+      host y ruta de la aplicacion.
+    2.Cambiar todas las referencias a http://localhost o http://solemen3.dev
+      a constantes.
+    3.Arreglar modelo de datos, agregar nombre, modelo e uri de imagen a 
+      automovil, definir transaccion de arriendo y definir autos que arrienda
+      un usuario a otro usuario.
+    4.Crear Mantenedor de Usuario (Perfil), Mantenedor para ingresar y visualizar
+      Automoviles.
