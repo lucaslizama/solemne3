@@ -48,9 +48,10 @@ class Usuario {
         $sql = "select * from usuario where user = ?";
 
         $statement = $conexion->prepare($sql);
-        $statement->bind_param("s", $user);
+        $statement->bind_param("s", $username);
+        $statement->execute();
 
-        if(num_rows == 0) {
+        if($statement->affected_rows == 0) {
             return false;
         }
 
@@ -63,8 +64,14 @@ class Usuario {
             $this->apellidoMat = $fila["apellidoMat"];
             $this->correo = $fila["correo"];
             $this->idPlan = $fila["id_plan"];
+            $this->user = $fila["user"];
+            $this->pass = $fila["pass"];
+            $statement->close();
+            $conexion->close();
             return true;
         }
+        $statement->close();
+        $conexion->close();
         return false;
     }
 

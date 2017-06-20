@@ -40,6 +40,12 @@
             $errores = array_merge($errores, array("repetir_clave" => "Ambas claves deben ser iguales"));
         }
     }
+
+    $usuario = new Usuario($nombre,$apellidoPat,$apellidoMat,$correo,$user,$clave);
+
+    if($usuario->buscarPorUsername($user)){
+        $errores = array_merge($errores, array("user" => "El usuario ingresado ya existe"));
+    }
     
     if(count($errores) > 0) {
         echo json_encode($errores);
@@ -48,12 +54,8 @@
     
     //Ingresar Usuario
 
-    $usuario = new Usuario($nombre,$apellidoPat,$apellidoMat,$correo,$user,$clave);
-
     if($usuario->insert()){
         echo json_encode(array("Exito" => "true"));
         exit();
     }
-
-    echo json_encode(array("Exito" => "false"));
 ?>

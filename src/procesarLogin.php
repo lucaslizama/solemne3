@@ -22,17 +22,18 @@
         exit();
     }
 
-    $usuario = new Usuario(null,null,null,null,$user,$pass);
+    $usuario = new Usuario(null,null,null,null,$user,$clave);
+    $usuario->buscarPorUsername($user);
     
     if($usuario->buscarPorUsername($user)){
         $data = $usuario->getArray();
-        if($data->pass == $clave) {
+        if($data["pass"] == $clave) {
             $sessionUser = array(
-                "nombre" => $usuario["nombre"],
-                "apellidoPat" => $usuario["apellidoPat"],
-                "apellidoMat" => $usuario["apellidoMat"],
-                "correo" => $usuario["correo"],
-                "user" => $usuario["user"]
+                "nombre" => $data["nombre"],
+                "apellidoPat" => $data["apellidoPat"],
+                "apellidoMat" => $data["apellidoMat"],
+                "correo" => $data["correo"],
+                "user" => $data["user"]
             );
             $_SESSION["usuario"] = $sessionUser;
             header("Location: http://solemne3.dev/");
