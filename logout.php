@@ -3,5 +3,5 @@
 
     $_SESSION["usuario"] = null;
 
-    header("Location: http://solemne3.dev/");
+    header("Location: /");
 ?>

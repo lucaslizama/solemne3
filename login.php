@@ -2,7 +2,7 @@
     session_start();
     
     if(isset($_SESSION["usuario"])){
-        header("Location: http://solemne3.dev/");
+        header("Location: /");
     }
 
     $errores = isset($_SESSION["errores"]) ? $_SESSION["errores"] : null;

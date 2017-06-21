@@ -18,7 +18,7 @@
 
     if(count($errores) > 0) {
         $_SESSION["errores"] = $errores;
-        header("Location: http://solemne3.dev/login.php");
+        header("Location: /login.php");
         exit();
     }
 
@@ -36,18 +36,18 @@
                 "user" => $data["user"]
             );
             $_SESSION["usuario"] = $sessionUser;
-            header("Location: http://solemne3.dev/");
+            header("Location: /");
             exit();
         } else {
             $errores = array_merge($errores, array("clave" => "La contraseña ingresada es incorrecta"));
             $_SESSION["errores"] = $errores;
-            header("Location: http://solemne3.dev/login.php");
+            header("Location: /login.php");
             exit();
         }
     }else {
         $errores = array_merge($errores, array("user" => "El usuario ingresado no existe"));
         $_SESSION["errores"] = $errores;
-        header("Location: http://solemne3.dev/login.php");
+        header("Location: /login.php");
         exit();
     }
 ?>
