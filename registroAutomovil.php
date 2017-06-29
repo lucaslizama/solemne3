@@ -69,7 +69,8 @@
                     <span class="text-danger" id="error-userfile"><?= isset($errores["userfile"]) ? $errores["userfile"] : "" ?></span>
                 </div>
                 <input type="submit" class="btn btn-primary" id="btnRegistro" value="Ingresar"></button>
-            </form>   
+            </form>  
+            <a href="index.php">Inicio</a> 
         </div>
     </body>
 </html>

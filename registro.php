@@ -20,6 +20,7 @@
         <div class="container background">
             <div class="page-header">
                 <h1 class="">Crea tu Cuenta</h1>
+                <a href="index.php">Inicio</a> 
             </div>
             <form hidden method="POST" action="src/procesarLogin.php" id="loginForm">
                 <input type="text" name="user" id="hiddenUser">
@@ -76,7 +77,7 @@
                     <span class="text-danger" id="error-repetir_clave"></span>
                 </div>
                 <input type="button" class="btn btn-primary" id="btnRegistro" value="Registrarse"></button>
-            </form>   
+            </form>  
         </div>
     </body>
 </html>

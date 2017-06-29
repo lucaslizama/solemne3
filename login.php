@@ -22,6 +22,7 @@
         <div class="container well">
             <div class="page-header">
                 <h1 class="">Ingresa a tu Cuenta</h1>
+                <a href="index.php">Inicio</a>
             </div>
             <form class="col-md-3 col-md-push-4 well" action="src/procesarLogin.php" method="POST">
                 <div class="form-group row">
@@ -40,6 +41,7 @@
                 </div>
                 <input type="submit" class="btn btn-primary" value="Ingresar" id="btnLogin">
             </form>
+            
         </div>
     </body>
 </html>

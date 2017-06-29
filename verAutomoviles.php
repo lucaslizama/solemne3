@@ -40,8 +40,8 @@
                                 echo "<tr>";
                                 echo "    <td>" . $value["nombre"] . "</td>";
                                 echo "    <td>" . $value["capacidad_personas"] . "</td>";
-                                echo "    <td>" . $value["anio"] . "</td>";
                                 echo "    <td>" . $value["km"] . "</td>";
+                                echo "    <td>" . $value["anio"] . "</td>";
                                 echo "    <td>" . $value["descripcion"] . "</td>";
                                 echo "    <td><img src='" . $value["thumbnail_url"] . "' alt='" . $value["nombre"] ."' width='100' height='100'></td>";
                                 echo "</tr>";
@@ -50,6 +50,7 @@
                     ?>
                 </tbody>
             </table>
+            <a href="index.php">Inicio</a>
         </div>
     </body>
 </html>
