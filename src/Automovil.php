@@ -2,7 +2,7 @@
 
 require "FabricaConexion.php";
 
-class Usuario {
+class Automovil {
     private $id;
     private $nombre;
     private $capacidad_personas;
@@ -20,16 +20,16 @@ class Usuario {
         $this->thumbnail_url = $thumbnail;
     }
 
-    public function insert () {
+    public function insert ($id_usuario) {
         $fabrica = new FabricaConexion();
         $conexion = $fabrica->fabricar();
 
         $sql = "insert into automovil "
-                . "(nombre,capacidad_personas,km,anio,descripcion,thumbnail_url) " 
-                . "values (?,?,?,?,?,?)";
+                . "(id_usuario,nombre,capacidad_personas,km,anio,descripcion,thumbnail_url) " 
+                . "values (?,?,?,?,?,?,?)";
         
         $statement = $conexion->prepare($sql);
-        $statement->bind_param("siiiss", $this->nombre,$this->capacidad_personas,$this->km, $this->anio, $this->descripcion, $this->thumbnail_url);
+        $statement->bind_param("isiiiss", $id_usuario,$this->nombre,$this->capacidad_personas,$this->km, $this->anio, $this->descripcion, $this->thumbnail_url);
 
         $statement->execute();
         $rows = $statement->affected_rows;
@@ -58,14 +58,7 @@ class Usuario {
         $automoviles = array();
 
         while($fila = $resultado->fetch_assoc()) {
-            $auto = array();
-            array_push($auto,$fila["id"]);
-            array_push($auto,$fila["capacidad_personas"]);
-            array_push($auto,$fila["km"]);
-            array_push($auto,$fila["anio"]);
-            array_push($auto,$fila["descripcion"]);
-            array_push($auto,$fila["thumbnail_url"]);
-            $automoviles = array_merge($automoviles, $auto);
+            array_push($automoviles, $fila);
         }
 
         $statement->close();

@@ -1,4 +1,5 @@
 <?php 
+    require "Automovil.php";
     session_start();
 
     $errores = array();
@@ -64,7 +65,16 @@
     $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
 
     if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
-        header("Location: ../verAutomoviles.php");
+        $auto = new Automovil($nombre,$capacidad,$km,$anio,$descripcion,$uploadfile);
+        if($auto->insert($_SESSION["usuario"]["id"])){
+            header("Location: ../verAutomoviles.php");
+            exit();
+        }
+        
+        $errores = array_merge($errores, array("userfile" => "Error al ingresar automovil"));
+        $_SESSION["errores"] = $errores;
+        $_SESSION["valores"] = $default;
+        header("Location: ../registroAutomovil.php");
         exit();
     } else {
         $errores = array_merge($errores, array("userfile" => "Error al subir la imagen"));

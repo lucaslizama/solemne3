@@ -29,6 +29,7 @@
                     <?php 
                         if(isset($user)) {
                     ?>
+                        <li><a href="registroAutomovil.php">Ingresar Automovil</a></li>
                         <li><a href="verAutomoviles.php">Ver Automoviles</a></li>
                         <li><a href="logout.php">Salir</a></li>
                     <?php 
