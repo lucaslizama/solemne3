@@ -46,7 +46,7 @@
     if($usuario->buscarPorUsername($user)){
         $errores = array_merge($errores, array("user" => "El usuario ingresado ya existe"));
     }
-    
+
     if(count($errores) > 0) {
         echo json_encode($errores);
         exit();
@@ -56,6 +56,9 @@
 
     if($usuario->insert()){
         echo json_encode(array("Exito" => "true"));
+        exit();
+    } else {
+        echo json_encode(array("Exito" => "false"));
         exit();
     }
 ?>

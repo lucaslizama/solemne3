@@ -26,7 +26,7 @@ class Usuario {
         $conexion = $fabrica->fabricar();
 
         $sql = "insert into usuario " 
-                . "(nombre,apellidoPat,apellidoMat,correo,user,pass) " 
+                . "(nombre,apellidoPat,apellidoMat,correo,user,clave) " 
                 . "values (?,?,?,?,?,?)";
         
         $statement = $conexion->prepare($sql);
@@ -65,7 +65,7 @@ class Usuario {
             $this->correo = $fila["correo"];
             $this->idPlan = $fila["id_plan"];
             $this->user = $fila["user"];
-            $this->pass = $fila["pass"];
+            $this->pass = $fila["clave"];
             $statement->close();
             $conexion->close();
             return true;
