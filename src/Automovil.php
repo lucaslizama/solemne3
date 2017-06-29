@@ -70,7 +70,7 @@ class Usuario {
 
         $statement->close();
         $conexion->close();
-        return count($automoviles) > 0;
+        return $automoviles;
     }
 
     public function getArray() {

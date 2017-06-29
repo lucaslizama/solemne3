@@ -29,6 +29,7 @@
         $data = $usuario->getArray();
         if($data["pass"] == $clave) {
             $sessionUser = array(
+                "id" => $data["id"],
                 "nombre" => $data["nombre"],
                 "apellidoPat" => $data["apellidoPat"],
                 "apellidoMat" => $data["apellidoMat"],
